@@ -1,1 +1,1 @@
-web: npm start @8080
+web: node src/server.js
