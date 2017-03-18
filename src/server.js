@@ -17,7 +17,7 @@ var bot = MessengerPlatform.create({
 }, server);
 app.use(bot.webhook('/'));
 bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
-  bot.sendTextMessage(userId, '<3 <3 <3');
+  bot.sendTextMessage(userId, 'Moi!');
 });
 
 app.get('/', (request, response) => {
