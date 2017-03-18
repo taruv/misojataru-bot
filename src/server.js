@@ -15,7 +15,7 @@ var bot = MessengerPlatform.create({
   validationToken: 'misojataru_bot_token',
   pageToken: 'EAACHs7ZAkf5IBAJo8IL3X1maMlZBgZBmcw6BQ5EZBG1OjGfZBJnW5vEPwRq6TaVsNgdlRiSEHHgEX3ZCrEw26krInV6TrOFVckFwKZCrutFv5LgIPLTEGhXBCEbOPefKvTc8D8jmjMCqxLQZCq91b9f3qSVERZC4QO1EWcYJSz3nwdQZDZD'
 }, server);
-app.use(bot.webhook('/webhook'));
+app.use(bot.webhook('/'));
 bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
   console.log(userId, message);
 });
