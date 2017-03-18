@@ -5,10 +5,10 @@ class PageTemplate extends React.Component {
     return (
       <html>
         <head>
-          <title>Jesjesjes</title>
+          <title>Misojataru-bot</title>
         </head>
         <body>
-          <h1>Aksu on tyhmä</h1>
+          <h1>Welcome to Misojataru-bot</h1>
         </body>
       </html>
     );

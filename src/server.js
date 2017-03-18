@@ -6,6 +6,14 @@ const PageTemplate = require('./PageTemplate');
 
 const app = express();
 
+app.get('/webhook', function (req, res) {
+    if (req.query['hub.verify_token'] === 'misojataru_bot_token') {
+      res.send(req.query['hub.challenge']);
+    } else {
+      res.send('Error, wrong validation token');
+    }
+});
+
 app.get('/', (request, response) => {
   response.status(200).end(ReactDOMServer.renderToStaticMarkup(React.createElement(PageTemplate)));
 });
