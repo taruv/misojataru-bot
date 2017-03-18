@@ -4,32 +4,27 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const PageTemplate = require('./PageTemplate');
 const MessengerPlatform = require('facebook-bot-messenger');
+const http = require('http');
 
 const app = express();
-
-const server = require('http').Server(app);
-var bot = MessengerPlatform.create({
+const server = http.Server(app);
+const bot = MessengerPlatform.create({
   pageID: '906336586173615',
   appID: '149205928935314',
   appSecret: '2f5c7e041fc4f2f14f2d20e64ce7808e',
   validationToken: 'misojataru_bot_token',
   pageToken: 'EAACHs7ZAkf5IBAJo8IL3X1maMlZBgZBmcw6BQ5EZBG1OjGfZBJnW5vEPwRq6TaVsNgdlRiSEHHgEX3ZCrEw26krInV6TrOFVckFwKZCrutFv5LgIPLTEGhXBCEbOPefKvTc8D8jmjMCqxLQZCq91b9f3qSVERZC4QO1EWcYJSz3nwdQZDZD'
 }, server);
-app.use(bot.webhook('/'));
+
+app.get('/', (request, response) => {
+  response.status(200).end(ReactDOMServer.renderToStaticMarkup(React.createElement(PageTemplate)));
+});
+
 bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
-  bot.getProfile(userId).then(function(data) {
-    console.log(data);
-  }).catch(function(error) {
-    console.log('Error when printing data');
-  });
   bot.sendReadedAction(userId);
   bot.sendTypingAction(userId);
   bot.sendClearTypingAction(userId);
   bot.sendTextMessage(userId, 'Moikka');
-});
-
-app.get('/', (request, response) => {
-  response.status(200).end(ReactDOMServer.renderToStaticMarkup(React.createElement(PageTemplate)));
 });
 
 const port_number = app.listen(process.env.PORT || 8080);
