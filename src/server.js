@@ -17,6 +17,11 @@ var bot = MessengerPlatform.create({
 }, server);
 app.use(bot.webhook('/'));
 bot.on(MessengerPlatform.Events.MESSAGE, function(userId, message) {
+  bot.getProfile(userId).then(function(data) {
+    console.log(data);
+  }).catch(function(error) {
+    console.log('Error when printing data');
+  });
   bot.sendReadedAction(userId);
   bot.sendTypingAction(userId);
   bot.sendClearTypingAction(userId);
