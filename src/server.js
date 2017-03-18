@@ -10,6 +10,5 @@ app.get('/', (request, response) => {
   response.status(200).end(ReactDOMServer.renderToStaticMarkup(React.createElement(PageTemplate)));
 });
 
-app.listen(8080, () => {
-  console.log("Jesjesjes");
-})
+const port_number = app.listen(process.env.PORT || 3000);
+app.listen(port_number);
