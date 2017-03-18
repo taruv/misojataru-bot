@@ -1,4 +1,7 @@
 const React = require('react');
+const FB = require('fb');
+
+FB.options({appId: '149205928935314'});
 
 class PageTemplate extends React.Component {
   render() {
