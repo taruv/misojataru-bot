@@ -6,6 +6,7 @@ class PageTemplate extends React.Component {
       <html>
         <head>
           <title>Misojataru-bot</title>
+          <meta charset="utf-8"/>
         </head>
         <body>
           <h1>Welcome to Misojataru-bot</h1>
