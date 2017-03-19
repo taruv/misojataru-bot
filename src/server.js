@@ -2,7 +2,6 @@ const express = require('express');
 require('babel-register');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const PageTemplate = require('./PageTemplate');
 const MessengerPlatform = require('facebook-bot-messenger');
 const http = require('http');
 
